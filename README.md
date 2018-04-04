@@ -15,13 +15,12 @@ Step 2. Add the dependency
 	dependencies {
 	        compile 'com.github.huangwuyi:AndroidUntil:V1.03'
 	}
-	<h1>包含类别信息</h1>
-	<ul>
-	<li>Checkinfo检查信息是否符合规范</li>
-	<li>ChineseData日期转化为中式的日期格式</li>
-	<li>ScreenUtil屏幕信息获取</li>
-	<li>预留</li>
-	<li>预留</li>
-	</ul>
+	<br/>
+	包含类别信息
+	===========
+
+	* Checkinfo检查信息是否符合规范
+	* ChineseData日期转化为中式的日期格式
+	* ScreenUtil屏幕信息获取
 
 
