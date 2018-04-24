@@ -8,6 +8,10 @@ public class BitmapCacheUtil {
     int cacheSize;
     LruCache<String,Bitmap> mMemoryCache;
 
+    public LruCache<String, Bitmap> getmMemoryCache() {
+        return mMemoryCache;
+    }
+
     public BitmapCacheUtil(){
         maxMemory= (int) (Runtime.getRuntime().maxMemory()/1024);
         cacheSize=maxMemory/8;
