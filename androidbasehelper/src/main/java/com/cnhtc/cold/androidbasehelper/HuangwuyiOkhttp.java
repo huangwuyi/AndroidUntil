@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
 
 import okhttp3.FormBody;
@@ -25,16 +26,19 @@ public class HuangwuyiOkhttp {
         huangwuyiOkHttpClient = new OkHttpClient();
     }
 
+    public String goGet(String url) throws IOException {
+        Request request=new Request.Builder().url(url).get().build();
+        return huangwuyiOkHttpClient.newCall(request).execute().body().string();
+    }
+
     public String goPost(String url, JSONObject jsonObjectParameter) throws IOException, JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("", "");
-        RequestBody requestBody = RequestBody.create(JSON, "");
         FormBody.Builder formBody = new FormBody.Builder();
         Iterator<String> iterator = jsonObjectParameter.keys();
         while (iterator.hasNext()) {
             String currentKey = iterator.next();
             formBody.add(currentKey, jsonObjectParameter.getString(currentKey));
         }
+        //TODO：1.这个地方可能需要判断一下URL的格式是否正确
         Request request = new Request.Builder()
                 .url(url)
                 .post(formBody.build())

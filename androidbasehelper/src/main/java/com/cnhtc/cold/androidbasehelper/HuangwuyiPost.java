@@ -5,18 +5,19 @@ import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 
-public class HuangwuyiAsyncTask extends AsyncTask<JSONObject,Integer,JSONObject> {
-    private String mUrl;
-    private Context mContext;
-    private ProgressDialog mProgressDialog;
-    private JSONObject mJSONObject;
-    public HuangwuyiAsyncTask(String url, Context context,JSONObject jsonObject) {
+public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
+    protected String mUrl;
+    protected Context mContext;
+    protected ProgressDialog mProgressDialog;
+    protected JSONObject mJSONObject;
+    public HuangwuyiPost(String url, Context context, JSONObject jsonObject) {
         super();
         this.mUrl=url;
         this.mContext=context;
@@ -41,6 +42,16 @@ public class HuangwuyiAsyncTask extends AsyncTask<JSONObject,Integer,JSONObject>
         super.onPostExecute(jsonObject);
         //1
         mProgressDialog.dismiss();
+        try {
+            if(jsonObject.getBoolean("success")){
+                onSuccess(jsonObject);
+            }else{
+                onFailure(jsonObject);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            onLosed();
+        }
     }
 
     @Override
@@ -69,7 +80,21 @@ public class HuangwuyiAsyncTask extends AsyncTask<JSONObject,Integer,JSONObject>
         } catch (JSONException e) {
             e.printStackTrace();
             jsonObjectResult=new JSONObject();
+        } catch (Exception e){
+            jsonObjectResult=new JSONObject();
         }
         return jsonObjectResult;
+    }
+
+    protected void onSuccess(JSONObject jsonObject){
+
+    }
+
+    protected void onFailure(JSONObject jsonObject){
+        Toast.makeText(this.mContext,"获取信息失败，可能的原因是：",Toast.LENGTH_LONG).show();
+    }
+
+    protected void onLosed(){
+        Toast.makeText(this.mContext,"获取信息失败，失败的很彻底。",Toast.LENGTH_LONG).show();
     }
 }
