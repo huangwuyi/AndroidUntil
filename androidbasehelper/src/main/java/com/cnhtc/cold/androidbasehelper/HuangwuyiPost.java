@@ -25,6 +25,22 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
         this.mJSONObject=jsonObject;
     }
 
+    public HuangwuyiPost(HuangwuyiParameter huangwuyiParameter) {
+        super();
+        this.mUrl=huangwuyiParameter.getmUrl();
+        this.mContext=huangwuyiParameter.getmContext();
+        this.mProgressDialog=new ProgressDialog(this.mContext);
+        this.mJSONObject=new JSONObject();
+        try {
+            this.mJSONObject.put("action",huangwuyiParameter.getmAction());
+            this.mJSONObject.put("datetime",huangwuyiParameter.getmDateTime());
+            this.mJSONObject.put("sign",huangwuyiParameter.getmSign());
+            this.mJSONObject.put("data",huangwuyiParameter.getmData());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void Initialized(){
         mProgressDialog.setTitle("提示");
         mProgressDialog.setMessage("正在操作，请稍候！");
