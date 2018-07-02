@@ -103,7 +103,8 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
     }
 
     protected void onSuccess(JSONObject jsonObject){
-
+        System.out.println(jsonObject);
+        Toast.makeText(this.mContext,"获取成功",Toast.LENGTH_SHORT).show();
     }
 
     protected void onFailure(JSONObject jsonObject){
