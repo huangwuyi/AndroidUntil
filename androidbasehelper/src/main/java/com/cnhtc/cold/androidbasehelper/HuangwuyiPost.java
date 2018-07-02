@@ -89,6 +89,8 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
     protected JSONObject doInBackground(JSONObject... jsonObjects) {
         JSONObject jsonObjectResult;
         try {
+            System.out.println("当前输出的的是来自与黄五一的类库：");
+            System.out.println(mJSONObject);
             jsonObjectResult=new JSONObject( new HuangwuyiOkhttp().goPost(mUrl,mJSONObject));
         } catch (IOException e) {
             e.printStackTrace();
