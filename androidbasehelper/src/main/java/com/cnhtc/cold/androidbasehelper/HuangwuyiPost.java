@@ -110,7 +110,7 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
     }
 
     protected void onFailure(JSONObject jsonObject){
-        Toast.makeText(this.mContext,"获取信息失败，可能的原因是：",Toast.LENGTH_LONG).show();
+        Toast.makeText(this.mContext,"获取信息失败，可能的原因是："+jsonObject,Toast.LENGTH_LONG).show();
     }
 
     protected void onLosed(){
