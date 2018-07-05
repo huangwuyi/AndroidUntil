@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class CommonDate {
+
     public String getCommonDateString(String dateString){
         SimpleDateFormat simpleDateFormatPHP=new SimpleDateFormat("MMM dd yyyy hh:mm:ss:SSSa", Locale.ENGLISH);
         SimpleDateFormat simpleDateFormatYMDHMS = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
@@ -81,4 +82,5 @@ public class CommonDate {
         date=new Date();
         return simpleDateFormatPHP.format(date);
     }
+
 }

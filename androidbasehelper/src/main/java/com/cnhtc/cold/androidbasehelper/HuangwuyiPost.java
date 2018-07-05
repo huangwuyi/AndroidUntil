@@ -23,6 +23,7 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
         this.mContext=context;
         this.mProgressDialog=new ProgressDialog(this.mContext);
         this.mJSONObject=jsonObject;
+        Initialized();
     }
 
     public HuangwuyiPost(HuangwuyiParameter huangwuyiParameter) {
@@ -39,6 +40,7 @@ public class HuangwuyiPost extends AsyncTask<JSONObject,Integer,JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Initialized();
     }
 
     private void Initialized(){
