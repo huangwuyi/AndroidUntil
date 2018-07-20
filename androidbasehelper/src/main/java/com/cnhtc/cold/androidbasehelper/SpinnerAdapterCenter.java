@@ -18,4 +18,8 @@ public class SpinnerAdapterCenter extends ArrayAdapter {
     public SpinnerAdapterCenter(@NonNull Context context,  @NonNull List objects) {
         super(context, R.layout.spinner_item_select, R.id.textView, objects);
     }
+
+    public SpinnerAdapterCenter(@NonNull Context context,  @NonNull Object[] objects) {
+        super(context, R.layout.spinner_item_select, R.id.textView, objects);
+    }
 }
