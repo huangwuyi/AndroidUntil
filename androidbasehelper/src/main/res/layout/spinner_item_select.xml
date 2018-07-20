@@ -6,8 +6,8 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_all_black"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_bottom_black"
         android:textSize="20sp"
         android:gravity="center"
         android:text="TextView" />
